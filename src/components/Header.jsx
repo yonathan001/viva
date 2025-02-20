@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { FiMenu, FiX } from 'react-icons/fi';
-import logo from '../assets/images/circle viva.png';
+import { useEffect, useState } from 'react';
+
+import logo from '../assets/images/circleviva.PNG';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,7 +44,7 @@ const Header = () => {
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <a href="#home" className="flex items-center gap-3">
-            <img src={logo} alt="Viva Technology" className="h-10 w-auto object-cover" onError={(e) => { e.target.onerror = null; e.target.src="/path/to/default/image.png"; }} />
+            <img src={logo} alt="Viva Technology" className="h-10 w-auto object-cover" onError={(e) => { e.target.onerror = null; e.target.src="../assets/images/circleviva.PNG"; }} />
             <div className="flex flex-col">
               <span className="text-2xl font-light tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-gray-800 to-gray-600 uppercase">
                 viva technology 🇪🇹

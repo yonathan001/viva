@@ -1,7 +1,6 @@
 import { FiGlobe, FiShield, FiTrendingUp } from 'react-icons/fi';
 
 import { FaArrowRight } from 'react-icons/fa';
-import logo from '../assets/images/logoanim.PNG'; // Import your logo
 import { motion } from 'framer-motion';
 
 const Hero = () => {
@@ -10,20 +9,12 @@ const Hero = () => {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-white to-gray-50 mt-24"
     >
-      {/* Animated Logo in the Middle */}
-      <motion.img
-        src={logo}
-        alt="Viva Technology Logo"
-        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 object-contain"
-        initial={{ y: 0 }}
-        animate={{ y: [0, 20, 0] }}
-        transition={{
-          duration: 3,
-          repeat: Infinity,
-          repeatType: 'mirror',
-          ease: 'easeInOut',
-        }}
-      />
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 -left-12 w-64 h-64 bg-blue-500/10 rounded-full mix-blend-multiply filter blur-xl animate-blob" />
+        <div className="absolute top-1/3 -right-12 w-64 h-64 bg-purple-500/20 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000" />
+        <div className="absolute -bottom-8 left-1/2 w-64 h-64 bg-green-500/15 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000" />
+      </div>
 
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-grid-pattern opacity-[0.02]" />
@@ -53,16 +44,6 @@ const Hero = () => {
                 </span>
               </motion.h1>
 
-               {/* Viva Technology Tagline */}
-               <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="inline-block text-blue-600 font-medium px-4 py-2 bg-blue-100 rounded-full"
-              >
-                viva technology 🇪🇹
-              </motion.div>
-
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -71,8 +52,6 @@ const Hero = () => {
               >
                 Empowering businesses with cutting-edge technology solutions tailored to drive growth and efficiency.
               </motion.p>
-
-             
 
               {/* Buttons */}
               <motion.div
@@ -136,6 +115,16 @@ const Hero = () => {
               className="relative hidden lg:block"
             >
               <div className="relative w-full aspect-square">
+                {/* Decorative elements */}
+                <div
+                  className="absolute top-1/4 -right-8 w-24 h-24 bg-green-500/20 rounded-lg rotate-45 animate-float"
+                  style={{ animationDelay: '1s' }}
+                />
+                <div
+                  className="absolute bottom-1/4 -left-8 w-32 h-32 bg-yellow-500/20 rounded-full animate-float"
+                  style={{ animationDelay: '2s' }}
+                />
+
                 {/* Glass card */}
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-white/10 backdrop-blur-lg rounded-2xl shadow-glass border border-white/20 p-8 flex flex-col justify-center items-center text-center">
                   <span className="text-5xl font-bold text-blue-600 mb-4">5+</span>

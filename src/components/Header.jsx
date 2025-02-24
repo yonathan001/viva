@@ -12,7 +12,6 @@ const Header = () => {
   const navItems = [
     { title: 'Home', href: '#home' },
     { title: 'About', href: '#about' },
-    { title: 'Projects', href: '#projects' },
     { title: 'Contact', href: '#contact' },
   ];
 
@@ -61,10 +60,10 @@ const Header = () => {
             />
             <div className="flex flex-col">
             <span
-  className="text-3xl font-light tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 uppercase"
+  className="text-1xl font-light tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 uppercase"
   style={{ fontFamily: 'Poppins, sans-serif' }}
 >
-  Viva Technology
+  viva Technology 🇪🇹
 </span>
             </div>
           </a>

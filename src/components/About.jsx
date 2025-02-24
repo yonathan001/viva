@@ -17,10 +17,9 @@ import { motion } from 'framer-motion';
 const About = () => {
   const technologies = [
     { name: 'Enterprise Software', icon: FiServer, color: 'text-blue-500', description: 'Custom enterprise applications' },
-    { name: 'Database Systems', icon: FiDatabase, color: 'text-red-500', description: 'Secure data management solutions' },
     { name: 'Network Solutions', icon: FiGrid, color: 'text-green-400', description: 'Advanced networking infrastructure' },
     { name: 'IT Infrastructure', icon: FiMonitor, color: 'text-blue-400', description: 'Modern IT infrastructure setup' },
-    { name: 'Security Services', icon: FiShield, color: 'text-gray-700', description: 'Comprehensive security solutions' }
+    { name: 'IT Consultancy', icon: FiShield, color: 'text-gray-700', description: 'Consult any about information technology' }
   ];
 
   return (

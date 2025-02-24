@@ -8,7 +8,6 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [hasScrolled, setHasScrolled] = useState(false);
-  const [logoSrc, setLogoSrc] = useState(logo); // Handle image fallback
 
   const navItems = [
     { title: "Home", href: "#home" },
@@ -19,112 +18,77 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setHasScrolled(window.scrollY > 20);
+      setHasScrolled(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    const sections = document.querySelectorAll("section[id]");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleSection = entries.find((entry) => entry.isIntersecting);
-        if (visibleSection) {
-          setActiveSection(visibleSection.target.id);
-        }
-      },
-      { threshold: 0.6 } // Trigger when 60% of section is in view
-    );
-
-    sections.forEach((section) => observer.observe(section));
-
-    return () => sections.forEach((section) => observer.unobserve(section));
-  }, []);
-
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white ${
-        hasScrolled ? "shadow-md" : ""
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-lg bg-opacity-80 ${
+        hasScrolled ? "bg-gray-900 shadow-lg" : "bg-transparent"
       }`}
     >
-      <nav className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          <a href="#home" className="flex items-center gap-3">
-            <img
-              src={logoSrc}
-              alt="Viva Technology"
-              className="h-10 w-auto object-cover"
-              onError={() => setLogoSrc("../assets/images/circleviva.PNG")}
-            />
-            <div className="flex flex-col">
-              <span className="text-2xl font-light tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-gray-800 to-gray-600 uppercase">
-                viva technology 🇪🇹
-              </span>
-            </div>
-          </a>
+      <nav className="container mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="#home" className="flex items-center gap-3">
+          <img src={logo} alt="Viva Tech" className="h-12 w-auto object-cover" />
+          <span className="text-3xl font-semibold text-white tracking-wide uppercase">
+            Viva Tech
+          </span>
+        </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map(({ title, href }) => (
-              <a
-                key={href}
-                href={href}
-                className={`nav-link ${
-                  activeSection === href.slice(1) ? "text-primary" : "text-gray-600"
-                } hover:text-gray-800 transition duration-300`}
-              >
-                {title}
-              </a>
-            ))}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-gray-600 hover:text-primary"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-          </button>
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex space-x-8">
+          {navItems.map(({ title, href }) => (
+            <a
+              key={href}
+              href={href}
+              className={`text-lg transition-all duration-300 ${
+                activeSection === href.slice(1)
+                  ? "text-white font-semibold"
+                  : "text-gray-400 hover:text-white"
+              }`}
+            >
+              {title}
+            </a>
+          ))}
         </div>
 
-        {/* Mobile Navigation */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden"
-            >
-              <div className="py-4 space-y-4">
-                {navItems.map(({ title, href }) => (
-                  <a
-                    key={href}
-                    href={href}
-                    className={`block nav-link ${
-                      activeSection === href.slice(1) ? "text-primary" : "text-gray-600"
-                    } hover:text-gray-800 transition duration-300`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {title}
-                  </a>
-                ))}
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-white"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle Menu"
+        >
+          {isOpen ? <FiX size={28} /> : <FiMenu size={28} />}
+        </button>
+      </nav>
+
+      {/* Mobile Navigation */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="absolute top-16 left-0 w-full bg-gray-900 shadow-md md:hidden"
+          >
+            <div className="flex flex-col items-center py-4 space-y-4">
+              {navItems.map(({ title, href }) => (
                 <a
-                  href="#contact"
-                  className="block px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors text-center"
+                  key={href}
+                  href={href}
+                  className="text-white text-lg font-medium hover:text-gray-300"
                   onClick={() => setIsOpen(false)}
                 >
-                  Get Started
+                  {title}
                 </a>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </nav>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

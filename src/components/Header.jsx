@@ -61,7 +61,7 @@ const Header = () => {
             />
             <div className="flex flex-col">
               <span className="text-2xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 uppercase">
-                Viva Technology 🇪🇹
+                viva Technology 🇪🇹
               </span>
             </div>
           </a>
@@ -98,37 +98,50 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation with Blurred Overlay */}
         <AnimatePresence>
           {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden mt-4"
-            >
-              <div className="py-4 space-y-4">
-                {navItems.map(({ title, href }) => (
+            <>
+              {/* Blurred Overlay */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+                onClick={() => setIsOpen(false)} // Close menu when overlay is clicked
+              />
+
+              {/* Mobile Menu */}
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+                className="fixed top-20 left-4 right-4 bg-white rounded-lg shadow-lg z-50 p-6"
+              >
+                <div className="space-y-4">
+                  {navItems.map(({ title, href }) => (
+                    <a
+                      key={href}
+                      href={href}
+                      className={`block text-gray-700 hover:text-blue-600 ${
+                        activeSection === href.slice(1) ? 'font-semibold' : ''
+                      } transition duration-300`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {title}
+                    </a>
+                  ))}
                   <a
-                    key={href}
-                    href={href}
-                    className={`block text-gray-700 hover:text-blue-600 ${
-                      activeSection === href.slice(1) ? 'font-semibold' : ''
-                    } transition duration-300`}
+                    href="#contact"
+                    className="block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-center"
                     onClick={() => setIsOpen(false)}
                   >
-                    {title}
+                    Get Started
                   </a>
-                ))}
-                <a
-                  href="#contact"
-                  className="block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-center"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Get Started
-                </a>
-              </div>
-            </motion.div>
+                </div>
+              </motion.div>
+            </>
           )}
         </AnimatePresence>
       </nav>

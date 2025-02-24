@@ -30,14 +30,15 @@ const Hero = () => {
               transition={{ duration: 0.5 }}
               className="space-y-8 text-center lg:text-left"
             >
-              <motion.span
+              {/* Viva Technology Tagline */}
+              <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
                 className="inline-block text-blue-600 font-medium px-4 py-2 bg-blue-100 rounded-full"
               >
-                Enterprise Technology Solutions in Ethiopia
-              </motion.span>
+                viva technology 🇪🇹
+              </motion.div>
 
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
@@ -60,6 +61,7 @@ const Hero = () => {
                 Empowering businesses with cutting-edge technology solutions tailored to drive growth and efficiency.
               </motion.p>
 
+              {/* Buttons */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -68,7 +70,7 @@ const Hero = () => {
               >
                 <a
                   href="#projects"
-                  className="group w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg flex items-center justify-center gap-2 transition-all duration-300 shadow-lg hover:shadow-xl"
+                  className="group w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg flex items-center justify-center gap-2 transition-all duration-300 shadow-lg hover:shadow-xl hover:from-blue-700 hover:to-purple-700"
                 >
                   View Our Solutions
                   <FaArrowRight className="text-sm transition-transform group-hover:translate-x-1" />

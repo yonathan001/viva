@@ -1,21 +1,21 @@
-import { 
-  FiLinkedin, 
-  FiTwitter, 
-  FiFacebook,
+import {
   FiCloud,
   FiDatabase,
-  FiServer,
+  FiFacebook,
   FiGrid,
-  FiPhone,
-  FiMonitor,
   FiLayers,
-  FiShield
+  FiLinkedin,
+  FiMonitor,
+  FiPhone,
+  FiServer,
+  FiShield,
+  FiTwitter
 } from 'react-icons/fi';
+
 import { motion } from 'framer-motion';
 
 const About = () => {
   const technologies = [
-    
     { name: 'Enterprise Software', icon: FiServer, color: 'text-blue-500', description: 'Custom enterprise applications' },
     { name: 'Database Systems', icon: FiDatabase, color: 'text-red-500', description: 'Secure data management solutions' },
     { name: 'Network Solutions', icon: FiGrid, color: 'text-green-400', description: 'Advanced networking infrastructure' },
@@ -41,11 +41,9 @@ const About = () => {
               Advanced Technology
             </span>
           </h2>
-       
           <p className="text-xl text-gray-600">
-             Provider of comprehensive enterprise technology solutions, driving innovation and growth for businesses in Ethiopia.  At Viva Technology, we're dedicated to transforming businesses through innovative technology solutions. Our comprehensive suite of services is designed to optimize operations, enhance security, and drive sustainable growth in the digital age.
+            Provider of comprehensive enterprise technology solutions, driving innovation and growth for businesses in Ethiopia. At Viva Technology, we're dedicated to transforming businesses through innovative technology solutions. Our comprehensive suite of services is designed to optimize operations, enhance security, and drive sustainable growth in the digital age.
           </p>
-          
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-16 items-center mb-20">
@@ -55,22 +53,14 @@ const About = () => {
             viewport={{ once: true }}
             className="grid grid-cols-2 gap-8"
           >
-
-<div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
               <h4 className="text-4xl font-bold text-primary mb-2">3+</h4>
               <p className="text-gray-600">Years Experience</p>
-
             </div>
-
-             
             <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
               <h4 className="text-4xl font-bold text-primary mb-2">5+</h4>
               <p className="text-gray-600">Enterprise Clients</p>
             </div>
-             
-          
-            
-            
           </motion.div>
 
           <motion.div
@@ -79,25 +69,14 @@ const About = () => {
             viewport={{ once: true }}
             className="grid grid-cols-2 gap-8"
           >
-
-<div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
               <h4 className="text-4xl font-bold text-primary mb-2">10+</h4>
               <p className="text-gray-600">Projects Completed</p>
             </div>
-
-
-             
-
             <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
               <h4 className="text-4xl font-bold text-primary mb-2">24/7</h4>
               <p className="text-gray-600">Support</p>
             </div>
-
-
-            
-            
-            
-            
           </motion.div>
         </div>
 
@@ -109,7 +88,7 @@ const About = () => {
         >
           <h3 className="text-3xl font-bold text-gray-900 mb-4">Our Technology Solutions</h3>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We leverage cutting-edge technologies to deliver enterprise-grade solutions that drive business success
+            We leverage cutting-edge technologies to deliver enterprise-grade solutions that drive business success.
           </p>
         </motion.div>
 

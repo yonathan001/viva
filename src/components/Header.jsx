@@ -60,9 +60,12 @@ const Header = () => {
               }}
             />
             <div className="flex flex-col">
-              <span className="text-2xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 uppercase">
-                viva Technology 🇪🇹
-              </span>
+            <span
+  className="text-3xl font-light tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 uppercase"
+  style={{ fontFamily: 'Poppins, sans-serif' }}
+>
+  Viva Technology
+</span>
             </div>
           </a>
 

@@ -1,7 +1,7 @@
 import { FiGlobe, FiShield, FiTrendingUp } from 'react-icons/fi';
 
 import { FaArrowRight } from 'react-icons/fa';
-import logo from '../assets/images/circleviva.PNG'; // Import your logo
+import logo from '../assets/images/logoanim.PNG'; // Import your logo
 import { motion } from 'framer-motion';
 
 const Hero = () => {
@@ -10,51 +10,20 @@ const Hero = () => {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-white to-gray-50 mt-24"
     >
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Moving Logo */}
-        <motion.img
-          src={logo}
-          alt="Viva Technology Logo"
-          className="absolute top-1/4 -left-12 w-24 h-24 object-contain"
-          initial={{ y: 0 }}
-          animate={{ y: [0, 20, 0] }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            repeatType: 'mirror',
-            ease: 'easeInOut',
-          }}
-        />
-        <motion.img
-          src={logo}
-          alt="Viva Technology Logo"
-          className="absolute top-1/3 -right-12 w-24 h-24 object-contain"
-          initial={{ y: 0 }}
-          animate={{ y: [0, 20, 0] }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            repeatType: 'mirror',
-            ease: 'easeInOut',
-            delay: 1,
-          }}
-        />
-        <motion.img
-          src={logo}
-          alt="Viva Technology Logo"
-          className="absolute -bottom-8 left-1/2 w-24 h-24 object-contain"
-          initial={{ y: 0 }}
-          animate={{ y: [0, 20, 0] }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            repeatType: 'mirror',
-            ease: 'easeInOut',
-            delay: 2,
-          }}
-        />
-      </div>
+      {/* Animated Logo in the Middle */}
+      <motion.img
+        src={logo}
+        alt="Viva Technology Logo"
+        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 object-contain"
+        initial={{ y: 0 }}
+        animate={{ y: [0, 20, 0] }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          repeatType: 'mirror',
+          ease: 'easeInOut',
+        }}
+      />
 
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-grid-pattern opacity-[0.02]" />
@@ -70,15 +39,7 @@ const Hero = () => {
               transition={{ duration: 0.5 }}
               className="space-y-8 text-center lg:text-left"
             >
-              {/* Viva Technology Tagline */}
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="inline-block text-blue-600 font-medium px-4 py-2 bg-blue-100 rounded-full"
-              >
-                Viva Technology 🇪🇹
-              </motion.div>
+              
 
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
@@ -92,6 +53,16 @@ const Hero = () => {
                 </span>
               </motion.h1>
 
+               {/* Viva Technology Tagline */}
+               <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="inline-block text-blue-600 font-medium px-4 py-2 bg-blue-100 rounded-full"
+              >
+                viva technology 🇪🇹
+              </motion.div>
+
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -100,6 +71,8 @@ const Hero = () => {
               >
                 Empowering businesses with cutting-edge technology solutions tailored to drive growth and efficiency.
               </motion.p>
+
+             
 
               {/* Buttons */}
               <motion.div
